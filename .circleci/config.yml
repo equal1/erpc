@@ -43,6 +43,7 @@ jobs:
   build-mac-gcc:
     macos: 
       xcode: 13.2.1
+    resource_class: macos.x86.metal.gen1
     steps:
       - checkout
       - run: brew update
@@ -57,6 +58,7 @@ jobs:
   build-mac-clang:
     macos: 
       xcode: 13.2.1
+    resource_class: macos.x86.metal.gen1
     steps:
       - checkout
       - run: brew update
