@@ -76,4 +76,4 @@ workflows:
       - build-linux-gcc
       # - build-linux-clang
       # - build-mac-gcc # Mac is on going, or it can be hosted on company computer.
-      # - build-mac-clang
+      - build-mac-clang
