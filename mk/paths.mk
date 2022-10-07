@@ -29,7 +29,9 @@ ifeq "$(is_mingw)" "1"
 else ifneq "$(is_darwin)" "1"
     BOOST_ROOT ?= /usr/local/opt/boost
 else
-    BOOST_ROOT ?= /opt/homebrew/opt/boost
+    ifndef BOOST_ROOT
+        BOOST_ROOT := $(shell brew --prefix boost)
+    endif
 endif
 
 TARGET_OUTPUT_ROOT = $(OUTPUT_ROOT)/$(DEBUG_OR_RELEASE)/$(os_name)/$(APP_NAME)
@@ -72,8 +74,15 @@ endif
 
 # Tool paths. Use different paths for OS X.
 ifeq "$(is_darwin)" "1"
-    FLEX ?= /opt/homebrew/opt/flex/bin/flex
-    BISON ?= /opt/homebrew/opt/bison/bin/bison
+    ifndef FLEX_ROOT
+        FLEX_ROOT := $(shell brew --prefix flex)
+    endif
+    ifndef BISON_ROOT
+        BISON_ROOT := $(shell brew --prefix bison)
+    endif
+
+    FLEX ?= $(FLEX_ROOT)/bin/flex
+    BISON ?= $(BISON_ROOT)/bin/bison
 else ifeq "$(is_linux)" "1"
     FLEX ?= /usr/bin/flex
     BISON ?= /usr/bin/bison
