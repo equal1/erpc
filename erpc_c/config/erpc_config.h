@@ -110,13 +110,13 @@
 //! Uncomment to change the size of buffers allocated by one of MessageBufferFactory.
 //! (@ref client_setup and @ref server_setup). The default size is set to 256.
 //! For RPMsg transport layer, ERPC_DEFAULT_BUFFER_SIZE must be 2^n - 16.
-//#define ERPC_DEFAULT_BUFFER_SIZE (256U)
+#define ERPC_DEFAULT_BUFFER_SIZE (65520U)
 
 //! @def ERPC_DEFAULT_BUFFERS_COUNT
 //!
 //! Uncomment to change the count of buffers allocated by one of statically allocated messages.
 //! Default value is set to 2.
-//#define ERPC_DEFAULT_BUFFERS_COUNT (2U)
+#define ERPC_DEFAULT_BUFFERS_COUNT (4U)
 
 //! @def ERPC_NOEXCEPT
 //!
@@ -130,7 +130,7 @@
 //! Default set to ERPC_NESTED_CALLS_DISABLED. Uncomment when callbacks, or other eRPC
 //! functions are called from server implementation of another eRPC call. Nested functions
 //! need to be marked as @nested in IDL.
-//#define ERPC_NESTED_CALLS (ERPC_NESTED_CALLS_ENABLED)
+#define ERPC_NESTED_CALLS (ERPC_NESTED_CALLS_ENABLED)
 
 //! @def ERPC_NESTED_CALLS_DETECTION
 //!
@@ -138,7 +138,7 @@
 //! This serve for locating nested calls in code. Nested calls are calls where inside eRPC function
 //! on server side is called another eRPC function (like callbacks). Code need be a bit changed
 //! to support nested calls. See ERPC_NESTED_CALLS macro.
-//#define ERPC_NESTED_CALLS_DETECTION (ERPC_NESTED_CALLS_DETECTION_DISABLED)
+#define ERPC_NESTED_CALLS_DETECTION (ERPC_NESTED_CALLS_DETECTION_DISABLED)
 
 //! @def ERPC_MESSAGE_LOGGING
 //!
@@ -162,7 +162,7 @@
 //! overwritten from the erpc_config.h by uncommenting the ERPC_TRANSPORT_MU_USE_MCMGR macro definition. Do not forget
 //! to add the MCMGR library into your project when ERPC_TRANSPORT_MU_USE_MCMGR_ENABLED option is used! See the
 //! erpc_mu_transport.h for additional MU settings.
-//#define ERPC_TRANSPORT_MU_USE_MCMGR ERPC_TRANSPORT_MU_USE_MCMGR_DISABLED
+#define ERPC_TRANSPORT_MU_USE_MCMGR ERPC_TRANSPORT_MU_USE_MCMGR_DISABLED
 //@}
 
 //! @def ERPC_PRE_POST_ACTION
